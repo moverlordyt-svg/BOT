@@ -1,21 +1,11 @@
 const { Client, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
-  ]
+  intents: [GatewayIntentBits.Guilds]
 });
 
-client.on("ready", () => {
-  console.log("Bot Online");
+client.once("ready", () => {
+  console.log(`Logged in as ${client.user.tag}`);
 });
 
-client.on("messageCreate", msg => {
-  if (msg.content === "!ping") {
-    msg.reply("Pong 🏓");
-  }
-});
-
-client.login("OTg1NDk0NTM4NzI4NjQwNTUy.GoaP8H.p0BvmE1LEt-WQ73lF_dt7uAUaz99zByH_kzPIo");
+client.login(process.env.OTg1NDk0NTM4NzI4NjQwNTUy.GjBReb.u6CVEo42x97Jaz_hY4UXBAz0d_OyDOORh55ujM);
